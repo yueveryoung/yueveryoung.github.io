@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- ------------------------------------------------------------------------------->
+	<!-- 分类-->
+	<!-- ------------------------------------------------------------------------------->
+	<div class="row">
+	    <div class="col-md-1">分类</div>
+	    <div class="col-md-2 actSourceInput template_input" style="display: none;" >
+	        <select class="js-data-example-ajax form-control search_template " >
+	            <option value="">请输入</option>
+	        </select>
+	    </div> 
+
+	    <!-- 新建 -->
+	    <?php if(empty($last_category)):?>
+	        <div class="col-md-2 actSourceInput template_input">
+	            <select  class="js-data-example-ajax form-control search_main_category " >
+	                <option value="">请输入</option>
+	            </select>
+	        </div>
+
+	    <!-- 编辑 -->
+	    <?php else:?>
+	        <?php foreach($last_category as $k => $v):?>
+	            <div class="col-md-2 actSourceInput template_input">
+	                <select  class="js-data-example-ajax form-control search_main_category " >
+	                    <option value="<?php echo !empty($v['ID']) ? $v['ID'] : 0 ?>"><?php echo !empty($v['title']) ? $v['title'] : '' ?></option>
+	                </select>
+	            </div>
+	        <?php endforeach;?>
+
+	    <?php endif;?>
+
+
+	    <div class="col-md-1">
+	        <button type="button" style="margin-left:50px" class="btn btn-info add_input" data-class='search_main_category'>增加选项</button>
+	    </div>
+	    <div class="col-md-1">
+	        <button type="button" style="margin-left:50px" class="btn btn-danger del_input">删除选项</button>
+	    </div>
+	</div>
+		
+	
+</body>
+</html>
